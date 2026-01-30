@@ -65,8 +65,8 @@ html {
 
 body {
     font-family: var(--font-family);
-    background-color: var(--color-bg-primary);
-    color: var(--color-text-primary);
+    background-color: #FFFFFF !important;
+    color: #0F172A !important;
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -1660,23 +1660,87 @@ img {
 /* =============================================
    Solution Suite Styles (Poultry, Slaughterhouse, Precision Ag)
    ============================================= */
+/* =============================================
+   Solution Suite Styles (Tabs & Interactivity)
+   ============================================= */
 .agri-solutions {
     background: linear-gradient(180deg, rgba(34, 197, 94, 0.02) 0%, transparent 30%, rgba(59, 130, 246, 0.02) 70%, transparent 100%);
 }
 
+.suite-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 40px;
+    padding: 8px;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 100px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.suite-tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: transparent;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    transition: all var(--transition-normal);
+}
+
+.suite-tab-btn:hover {
+    color: var(--color-text-primary);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.suite-tab-btn.active {
+    background: #FFFFFF;
+    color: var(--color-accent-blue);
+    box-shadow: var(--shadow-soft);
+}
+
+.suite-tab-btn .tab-icon {
+    font-size: 18px;
+}
+
+.suites-container {
+    position: relative;
+    min-height: 400px;
+}
+
 .solution-suite {
-    margin-bottom: 80px;
+    margin-bottom: 0;
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all var(--transition-normal);
+}
+
+.solution-suite.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .suite-header {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 24px;
     margin-bottom: 32px;
     padding: 24px 32px;
-    background: var(--color-bg-card);
+    background: #FFFFFF;
     border: 1px solid var(--color-border);
-    border-radius: 16px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
     flex-wrap: wrap;
 }
 
@@ -2099,285 +2163,3 @@ section[id] {
 /* =============================================
    Client Logos Bar
    ============================================= */
-.client-logos {
-    padding: 60px 0;
-    background: var(--color-bg-secondary);
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
-}
-
-.logos-label {
-    text-align: center;
-    font-size: 14px;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 32px;
-    font-weight: 500;
-}
-
-.logos-grid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 48px;
-    flex-wrap: wrap;
-}
-
-.logo-item {
-    opacity: 0.6;
-    transition: opacity var(--transition-normal);
-    filter: grayscale(100%);
-}
-
-.logo-item:hover {
-    opacity: 1;
-    filter: grayscale(0%);
-}
-
-.logo-item img {
-    height: 40px;
-    width: auto;
-    object-fit: contain;
-}
-
-/* =============================================
-   Featured Work Section
-   ============================================= */
-.featured-work {
-    padding: var(--section-padding) 0;
-    background: var(--color-bg-primary);
-}
-
-.hero-products-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    margin-bottom: 60px;
-}
-
-@media (max-width: 1024px) {
-    .hero-products-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-products-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.hero-product-card {
-    display: flex;
-    flex-direction: column;
-    padding: 32px;
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
-    border-radius: 24px;
-    text-decoration: none;
-    color: inherit;
-    transition: all var(--transition-normal);
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-product-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--gradient-primary);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform var(--transition-normal);
-}
-
-.hero-product-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--color-accent-blue);
-    box-shadow: var(--shadow-medium), 0 0 40px rgba(37, 99, 235, 0.1);
-}
-
-.hero-product-card:hover::before {
-    transform: scaleX(1);
-}
-
-.hero-product-badge {
-    display: inline-block;
-    padding: 6px 14px;
-    background: var(--gradient-primary);
-    color: #FFFFFF;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: 100px;
-    width: fit-content;
-    margin-bottom: 20px;
-}
-
-.hero-product-icon {
-    font-size: 48px;
-    margin-bottom: 16px;
-}
-
-.hero-product-name {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-bottom: 8px;
-}
-
-.hero-product-tagline {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-accent-blue);
-    margin-bottom: 16px;
-}
-
-.hero-product-description {
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--color-text-secondary);
-    margin-bottom: 24px;
-    flex-grow: 1;
-}
-
-.hero-product-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding: 16px;
-    background: var(--color-bg-secondary);
-    border-radius: 12px;
-    margin-bottom: 20px;
-}
-
-.hero-product-stats .stat-highlight {
-    font-size: 28px;
-    font-weight: 800;
-    background: var(--gradient-text);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.hero-product-stats .stat-desc {
-    font-size: 13px;
-    color: var(--color-text-muted);
-}
-
-.hero-product-link {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-accent-blue);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: gap var(--transition-fast);
-}
-
-.hero-product-card:hover .hero-product-link {
-    gap: 12px;
-}
-
-/* =============================================
-   Portfolio Section (All Products)
-   ============================================= */
-.portfolio-section {
-    padding-top: 40px;
-    border-top: 1px solid var(--color-border);
-}
-
-.portfolio-heading {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 32px;
-    text-align: center;
-}
-
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-@media (max-width: 1024px) {
-    .portfolio-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.portfolio-card {
-    display: flex;
-    flex-direction: column;
-    padding: 24px;
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
-    border-radius: 16px;
-    text-decoration: none;
-    color: inherit;
-    transition: all var(--transition-normal);
-}
-
-.portfolio-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--color-border-hover);
-    box-shadow: var(--shadow-soft);
-}
-
-.portfolio-card.client-project {
-    background: linear-gradient(135deg, rgba(124, 58, 237, 0.03), rgba(236, 72, 153, 0.03));
-    border-style: dashed;
-    cursor: default;
-}
-
-.portfolio-badge {
-    display: inline-block;
-    padding: 4px 10px;
-    background: rgba(37, 99, 235, 0.1);
-    color: var(--color-accent-blue);
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: 100px;
-    width: fit-content;
-    margin-bottom: 12px;
-}
-
-.portfolio-badge.client {
-    background: rgba(124, 58, 237, 0.1);
-    color: var(--color-accent-purple);
-}
-
-.portfolio-card h4 {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-bottom: 8px;
-}
-
-.portfolio-card p {
-    font-size: 13px;
-    color: var(--color-text-muted);
-    line-height: 1.5;
-}

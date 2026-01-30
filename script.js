@@ -10,7 +10,37 @@ document.addEventListener('DOMContentLoaded', function () {
     initContactForm();
     initSmoothScroll();
     initFAQ();
+    initAgriTechTabs();
 });
+
+// =============================================
+// AgriTech Suite Tabs
+// =============================================
+function initAgriTechTabs() {
+    const tabBtns = document.querySelectorAll('.suite-tab-btn');
+    const suites = document.querySelectorAll('.solution-suite');
+
+    if (!tabBtns.length || !suites.length) return;
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetSuite = btn.getAttribute('data-suite');
+
+            // Update buttons
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Update suites
+            suites.forEach(suite => {
+                if (suite.getAttribute('data-suite-content') === targetSuite) {
+                    suite.classList.add('active');
+                } else {
+                    suite.classList.remove('active');
+                }
+            });
+        });
+    });
+}
 
 // =============================================
 // Navbar Scroll Effect
